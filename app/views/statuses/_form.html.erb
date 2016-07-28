@@ -1,0 +1,31 @@
+<%= form_for(@status) do |f| %>
+  <% if @status.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@status.errors.count, "error") %> prohibited this status from being saved:</h2>
+
+      <ul>
+      <% @status.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="input-group stpad">
+    <span class="input-group-addon addon3">Status</span>
+    <%= f.text_field :given,class:"form-control" %>
+  </div>
+
+  <div class="input-group stpad">
+    <span class="input-group-addon addon3">Info</span>
+    <%= f.text_area :info, class:"form-control", :rows => "2",placeholder:"Optional" %>
+  </div>
+
+
+  <br>
+  <div class="text-center stpad">
+    <%= link_to '<i class="fa fa-arrow-left" aria-hidden="true"></i> Cancel'.html_safe, statuses_path, class:"btn btn-default" %>
+    <button role="button" type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-send"></i> Submit</button>
+
+  </div>
+<% end %>

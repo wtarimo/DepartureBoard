@@ -1,0 +1,54 @@
+<%= form_for(@departure) do |f| %>
+  <% if @departure.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@departure.errors.count, "error") %> prohibited this departure from being saved:</h2>
+
+      <ul>
+      <% @departure.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="input-group stpad">
+    <span class="input-group-addon addon3">Trip</span>
+    <%= f.select :trip_id, options_for_select(@trip_options,:selected=>@departure.trip_id),{}, {:class => 'form-control'} %>
+  </div>
+
+  <div class="input-group stpad" id='datetimepicker1'>
+    <span class="input-group-addon addon3">ScheduledTime</span>
+    <%= f.text_field :scheduledtime, class:"form-control",placeholder:"Format: 'Do MMM YYYY HH:mm:ss' E.g. 3rd Fed 2012 07:08:00" %>
+    <span class="input-group-addon">
+        <span class="glyphicon glyphicon-calendar"></span>
+    </span>
+  </div>
+
+  <div class="input-group stpad">
+    <span class="input-group-addon addon3">Lateness</span>
+    <%= f.number_field :lateness,class:"form-control",placeholder:"In Seconds - Optional" %>
+  </div>
+
+  <div class="input-group stpad">
+    <span class="input-group-addon addon3">Departure Track #</span>
+    <%= f.number_field :track_id,class:"form-control",placeholder:"Enter Track Number" %>
+  </div>
+
+  <div class="input-group stpad">
+    <span class="input-group-addon addon3">Status</span>
+    <%= f.select :status_id, options_for_select(@status_options,:selected=>@departure.status_id),{}, {:class => 'form-control'} %>
+  </div>
+
+  <div class="input-group stpad">
+    <span class="input-group-addon addon3">Info</span>
+    <%= f.text_area :info, class:"form-control", :rows => "2",placeholder:"Optional" %>
+  </div>
+
+
+  <br>
+  <div class="text-center stpad">
+    <%= link_to '<i class="fa fa-arrow-left" aria-hidden="true"></i> Cancel'.html_safe, departures_path, class:"btn btn-default" %>
+    <button role="button" type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-send"></i> Submit</button>
+
+  </div>
+<% end %>

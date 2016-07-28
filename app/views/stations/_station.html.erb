@@ -1,0 +1,10 @@
+<tr>
+	<td><%= station.updated_at.strftime("%d/%m/%Y %H:%M") %></td>
+	<td><%= station.name %></td>
+	<td><%= station.info %></td>
+	<td><%= link_to '<i class="fa fa-eye" aria-hidden="true"></i> Show'.html_safe, station, class:"pull-right btn btn-xs btn-info" %></td>
+	<td><%= link_to '<i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit'.html_safe, edit_station_path(station), class:"pull-right btn btn-xs btn-warning" %></td>
+  	<td><%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i> Delete'.html_safe, station,
+               method: :delete,
+               data: { confirm: 'Are you sure?' }, class:"pull-right btn btn-xs btn-danger" %></td>
+</tr>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  trip_id: 
+  lateness: 1
+  track_id: 
+  info: MyText
+  status_id: 
+
+two:
+  trip_id: 
+  lateness: 1
+  track_id: 
+  info: MyText
+  status_id: 

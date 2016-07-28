@@ -1,0 +1,11 @@
+<% trip = Trip.find(departure.trip_id) %>
+<tr>
+	<td><%= departure.updated_at.strftime("%d/%m/%Y %H:%M") %></td>
+	<td><%= Station.find(trip.origin_id).name %></td>
+	<td><%= trip.number %></td>
+	<td><%= Station.find(trip.destination_id).name %></td>
+	<td><%= departure.scheduledtime.strftime("%d/%m/%Y %H:%M") %></td>
+	<td><%= departure.lateness %></td>
+	<td><%= departure.track_id ? Track.find(departure.track_id).number : "" %></td>
+	<td><%= Status.find(departure.status_id).given %></td>
+</tr>

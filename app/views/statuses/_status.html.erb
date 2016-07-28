@@ -1,0 +1,10 @@
+<tr>
+	<td><%= status.updated_at.strftime("%d/%m/%Y %H:%M") %></td>
+	<td><%= status.given %></td>
+	<td><%= status.info %></td>
+	<td><%= link_to '<i class="fa fa-eye" aria-hidden="true"></i> Show'.html_safe, status, class:"pull-right btn btn-xs btn-info" %></td>
+	<td><%= link_to '<i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit'.html_safe, edit_status_path(status), class:"pull-right btn btn-xs btn-warning" %></td>
+  	<td><%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i> Delete'.html_safe, status,
+               method: :delete,
+               data: { confirm: 'Are you sure?' }, class:"pull-right btn btn-xs btn-danger" %></td>
+</tr>

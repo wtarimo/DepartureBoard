@@ -11,9 +11,61 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20160727000745) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "departures", force: :cascade do |t|
+    t.integer  "trip_id"
+    t.integer  "lateness",      default: 0
+    t.integer  "track_id"
+    t.text     "info"
+    t.integer  "status_id"
+    t.datetime "scheduledtime"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  add_index "departures", ["status_id"], name: "index_departures_on_status_id", using: :btree
+  add_index "departures", ["track_id"], name: "index_departures_on_track_id", using: :btree
+  add_index "departures", ["trip_id"], name: "index_departures_on_trip_id", using: :btree
+
+  create_table "stations", force: :cascade do |t|
+    t.string   "name"
+    t.text     "info"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "statuses", force: :cascade do |t|
+    t.string   "given"
+    t.text     "info"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tracks", force: :cascade do |t|
+    t.integer  "number"
+    t.text     "info"
+    t.integer  "station_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "tracks", ["station_id"], name: "index_tracks_on_station_id", using: :btree
+
+  create_table "trips", force: :cascade do |t|
+    t.string   "number"
+    t.integer  "origin_id"
+    t.integer  "destination_id"
+    t.text     "info"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_foreign_key "departures", "statuses"
+  add_foreign_key "departures", "tracks"
+  add_foreign_key "departures", "trips"
+  add_foreign_key "tracks", "stations"
 end

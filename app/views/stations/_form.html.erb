@@ -1,0 +1,32 @@
+<%= form_for(@station) do |f| %>
+  <% if @station.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@station.errors.count, "error") %> prohibited this station from being saved:</h2>
+
+      <ul>
+      <% @station.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="input-group stpad">
+    <span class="input-group-addon addon3">Name</span>
+    <%= f.text_field :name,class:"form-control" %>
+  </div>
+
+  <div class="input-group stpad">
+    <span class="input-group-addon addon3">Info</span>
+    <%= f.text_area :info, class:"form-control", :rows => "2",placeholder:"Optional" %>
+  </div>
+
+
+  <br>
+  <div class="text-center stpad">
+    <%= link_to '<i class="fa fa-arrow-left" aria-hidden="true"></i> Cancel'.html_safe, stations_path, class:"btn btn-default" %>
+    <button role="button" type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-send"></i> Submit</button>
+
+  </div>
+<% end %>

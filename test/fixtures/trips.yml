@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: 1
+  origin_id: 1
+  destination_id: 1
+  scheduled_time: 2016-07-26 20:03:25
+  info: MyText
+
+two:
+  number: 1
+  origin_id: 1
+  destination_id: 1
+  scheduled_time: 2016-07-26 20:03:25
+  info: MyText

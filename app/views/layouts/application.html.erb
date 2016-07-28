@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>DepartureBoard</title>
+  <title>MBTA DepartureBoard</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  
   <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  
 </head>
 <body>
 
 <%= yield %>
-
+<br/><br/>
+<footer class="footer">
+  <div class="container">
+    <p class="text-muted">&copy; MBTA DepartureBoard 2016 by William Tarimo</p>
+  </div>
+</footer>
 </body>
 </html>

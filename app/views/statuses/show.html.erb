@@ -1,0 +1,51 @@
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="<%= root_path %>">MBTA DepartureBoard</a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="<%= departures_path %>">Departures</a></li>
+        <li><a href="<%= trips_path %>">Trips</a></li>
+        <li><a href="<%= stations_path %>">Stations</a></li>
+        <li><a href="<%= tracks_path %>">Tracks</a></li>
+        <li class="active"><a href="<%= statuses_path %>">Statuses</a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>
+
+<div class="container content">
+  <p id="notice"><%= notice %></p>
+  <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h4 class="panel-title"><i class="fa fa-info-circle" aria-hidden="true"></i> Status Info
+        </h4>
+      </div>
+      <div class="panel-body">
+      	<p>
+		  <strong>Given:</strong>
+		  <%= @status.given %>
+		</p>
+
+		<p>
+		  <strong>Info:</strong>
+		  <%= @status.info %>
+		</p>
+      	<br/>
+        <div class="text-center stpad">
+        <%= link_to '<i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit'.html_safe, edit_status_path(@status), class:"pull-left btn btn-warning" %>
+        <%= link_to '<i class="fa fa-arrow-left" aria-hidden="true"></i> Back To Statuses'.html_safe, statuses_path, class:"pull-right btn btn-primary" %>
+
+      </div>
+	  </div>
+      </div>
+    </div>
+</div>

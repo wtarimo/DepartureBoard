@@ -1,0 +1,48 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="<%= root_path %>">MBTA Departure Board</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container content">
+	<p id="notice"><%= notice %></p>
+	<div class="panel panel-primary">
+      <div class="panel-heading">
+        <h4 class="panel-title"><i class="fa fa-train" aria-hidden="true"></i> Departure Board <span class="badge"><%=@departures.count%></span>
+        <%= link_to '<i class="fa fa-lock" aria-hidden="true"></i> Manage Departures'.html_safe, departures_path, class:"pull-right btn btn-success" %>
+        </h4>
+      </div>
+      <div class="panel-body">
+      <div class="table-responsive tableItem">
+        <table id="table" class="table table-hover table-striped tablesorter">
+          <thead>
+            <tr>
+              <th>Last Update  <i class="fa fa-sort text-right" aria-hidden="true"></i></th>
+		      <th>Origin  <i class="fa fa-sort text-right" aria-hidden="true"></i></th>
+		      <th>Trip  <i class="fa fa-sort text-right" aria-hidden="true"></i></th>
+		      <th>Destination  <i class="fa fa-sort text-right" aria-hidden="true"></i></th>
+		      <th>ScheduledTime  <i class="fa fa-sort text-right" aria-hidden="true"></i></th>
+		      <th>Lateness  <i class="fa fa-sort text-right" aria-hidden="true"></i></th>
+		      <th>Track  <i class="fa fa-sort text-right" aria-hidden="true"></i></th>
+		      <th>Status  <i class="fa fa-sort text-right" aria-hidden="true"></i></th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render @departures %>
+          </tbody>
+        </table>
+      </div>
+      </div>
+    </div>
+</div>
+
+
+<script type="text/javascript" charset="utf-8">
+
+  $(document).ready(function() { 
+    $("#table").tablesorter();
+  });
+
+</script>
