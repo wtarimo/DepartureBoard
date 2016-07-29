@@ -1,0 +1,17 @@
+<% flash.each do |name, msg| %>
+  <% if msg.class == Array %>
+    <% msg.each do |message| %>
+      <div class="flash_<%= name %>">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true"><i class="glyphicon glyphicon-remove top"></i></button>
+      <%= message %>
+    </div>
+    <% end %>
+  <% else %>
+    <% if msg.is_a?(String) %>
+      <div class="flash_<%= name %>">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true"><i class="glyphicon glyphicon-remove"></i></button>
+        <%= msg %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>

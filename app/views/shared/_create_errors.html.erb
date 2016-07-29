@@ -1,0 +1,9 @@
+<div class="flash_alert">
+    <h4><%= pluralize(object.errors.count, "error") %> prohibited this <%=name%> from being saved:</h4>
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true"><i class="glyphicon glyphicon-remove"></i></button>
+    <ul>
+    <% object.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+ </div>

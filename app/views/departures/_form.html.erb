@@ -1,14 +1,7 @@
 <%= form_for(@departure) do |f| %>
-  <% if @departure.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@departure.errors.count, "error") %> prohibited this departure from being saved:</h2>
 
-      <ul>
-      <% @departure.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+  <% if @departure.errors.any? %>
+    <%= render partial: "shared/create_errors", locals: {object: @departure, name:"departure"} %>
   <% end %>
 
   <div class="input-group stpad">

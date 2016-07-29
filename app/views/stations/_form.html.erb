@@ -1,16 +1,7 @@
 <%= form_for(@station) do |f| %>
   <% if @station.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@station.errors.count, "error") %> prohibited this station from being saved:</h2>
-
-      <ul>
-      <% @station.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+    <%= render partial: "shared/create_errors", locals: {object: @station, name:"station"} %>
   <% end %>
-
 
   <div class="input-group stpad">
     <span class="input-group-addon addon3">Name</span>
